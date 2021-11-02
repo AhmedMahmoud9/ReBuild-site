@@ -1,0 +1,488 @@
+/************variables**********/
+
+:root{
+    --colorLight:#fff;
+    --colorDark:#14171e;
+    --textColorLight:black;
+    --textColorDark:#797979;
+    --body: var(--colorDark);
+    --body2: var(--colorLight);
+    --Text: var(--textColorDark);
+    --Text2: var(--textColorLight);
+}
+.LightMode{
+    --colorLight:#fff;
+    --colorDark:#14171e;
+    --textColorLight:black;
+    --textColorDark:#797979;
+    --body: var(--colorLight);
+    --body2: var(--colorDark);
+    --Text: var(--textColorLight);
+    --Text2: var(--textColorDark);
+}
+$MainFont : monospace;
+$mainColor :#C92026;
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: var(--body);
+    font-family: $MainFont;  
+    overflow-x: hidden;
+
+}
+
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/******************FlexPage************************/
+
+#startPage{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    background-color:var(--body2);
+    position: fixed;
+    z-index: 1000;
+    #startPageText{
+        justify-self: center;
+        align-self: center;
+        z-index: 2000;
+        #startPageText path{
+            stroke: var(--Text);
+        }
+    }
+    
+}
+.stackBar{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    // grid-row: 1fr 3fr 1fr;
+    margin-top: 20px;
+    gap: 2em;
+    position: fixed;
+    
+
+    /*****************circle Text******/
+    .letter{
+        path{
+            fill:var(--Text);
+        }
+    
+    animation: moving 10s infinite linear;
+    // margin-top: 20px;
+    grid-column: 1;
+    }
+    @keyframes moving
+    {
+        0%{
+            transform:rotate(0deg) ;
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    .mainHeader{
+        grid-column: 2;
+        justify-self: center;
+        align-self: start;
+        // :hover{
+        //     cursor: pointer;
+        // }
+
+    }
+    #navButton{
+        margin-right: 10px;
+        font-size: 18px;
+        grid-column: 3;
+        height: 30px;
+        justify-self: end;
+        align-self: start;
+        width: 70px;
+        background-color: var(--body);
+        border-radius: 10px;
+        border: 3px solid black;
+
+    }
+    #navButton:hover{
+        box-shadow:1px 1px 1px 1px var(--Text);
+        
+    }
+    #navButton:focus{
+            outline: none;
+    
+    }
+    .colorMode{
+        grid-column: 3;
+        justify-self: end;
+        align-self: center;
+
+
+        #circle{
+            border-radius: 50%;
+            border:2px solid var(--Text);
+            width: 25px;
+            height: 25px;
+            margin-right: 50%;
+            background: linear-gradient(to right, #fff 40% , #14171e 60%);;
+            color: transparent;
+            float: right;
+            animation: pulse 2s infinite linear;
+            }
+        @keyframes pulse {
+            0%{
+                box-shadow: 0 0 0 0 rgba(121, 121, 121, 1);
+            }
+            40%{
+                box-shadow: 0 0 0 20px rgba(121, 121, 121, 0);
+            }
+            80%{
+                box-shadow: 0 0 0 20px rgba(121, 121, 121, 0);
+            }
+            100%{
+                box-shadow: 0 0 0 0px rgba(121, 121, 121, 0);
+            }
+            
+        }   
+
+        #circle:focus{
+            outline: none;
+        }
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 30;
+            font-size: 15px;
+            color: var(--body2);
+            transform: rotate(90deg);
+            margin-top: 30%;
+            float: left;
+            }   
+    }
+    }
+#controlNav{
+    display: none;
+    height: 100%;
+        width: 50%;
+        background-color: var(--body2);
+        right: 0%;    
+        position: fixed;
+        z-index: 210;
+    #navList{
+        display: grid;
+        grid-auto-rows: minmax(20px,70px);
+        
+        // top: 5%;
+        // transform:translateX(100%) ;
+        a{
+            justify-self: start;
+            align-self: center;
+            padding-left: 10%;
+            font-size: 40px;
+            color:var(--Text2);
+        }
+        #closeNav{
+            justify-self: end;
+            padding-right: 10%;
+            border: none;
+            background: none;
+            width: 5px;
+            height: 10px;
+            margin-top: 20px;
+        }
+        #closeNav:focus{
+            outline: none;
+            text-align: center;
+        
+        }
+        }    
+        
+    }
+
+
+
+    /*********************************************/
+    .textParticl{
+        display: grid;
+        grid-template-columns: 1fr  1fr;
+        grid-auto-rows: minmax(50em,auto);
+        justify-items: start;
+        align-items: center;
+        // margin-top: 500px;
+
+        
+    }
+
+    /******************SCROLING***************/
+    .scrolling{
+        height: 30vh;
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        svg{ 
+            height: 80%;
+            // width:5%;
+            }
+        svg ellipse:hover{
+            cursor: pointer;
+        }       
+        p{
+            color: var(--Text);
+            font-size: 24px;
+        }
+    }
+
+    /********************whyUs*************************/
+    .whyUs{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-gap: 5em;
+        grid-auto-rows: minmax(100px,auto);
+        justify-items: start;
+        align-items: start;
+        padding-left: 5%;
+        #fillTextAnim path{
+            // color: blue;
+            stroke:var(--Text);
+        }
+
+        .normalText path{
+            fill:var(--Text);
+        }
+        #rideText{
+            fill: var(--Text);
+        }
+        
+
+    }
+
+/*********************TextGif*********/
+.textGif{
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    grid-auto-rows: minmax(50em,auto);
+    margin-top: 30px;
+
+    video{
+        position: absolute;
+        justify-self: center;
+        align-self: center;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    #myText{
+        position: absolute;
+        justify-self: center;
+        align-self: center;
+        width: 100%;
+        height: 100%;
+        background: var(--body) url("/media/3lemoo.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 400px;
+        mix-blend-mode: screen;
+    }
+}  
+
+
+    /**************service**************/
+
+    .service{
+        border-top: 5px solid black;
+        margin-top: 150px;
+        display: grid;
+        grid-template-columns:1fr 3fr 1fr ;
+        h1{
+            grid-column: 2;
+            color:var(--Text);
+            // border-bottom: 2px solid var(--Text);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 150px;
+        }
+
+        p{
+            text-align: center;
+            font-size: 30px;
+            color: var(--body);
+            background: var(--Text);
+        }
+        .branding{
+            // justify-self: center;
+            grid-column: 2;
+            // grid-row: 2/3;
+            // display: grid;
+        }
+        .brandContiner{
+            grid-column: 2;
+
+            div{
+                
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                justify-items: center;
+                padding: 50px;
+
+            }
+            .rightimg{
+                float: right;
+            }
+            .leftDiv{
+                float: left;
+            }
+            .rightDiv{
+                float: right;
+            }
+            .leftImg{
+                float: left;
+            }
+        }
+                
+    }
+
+
+
+
+    /**************ourTeam**********/
+    .ourTeam{
+
+        margin-top: 150px;
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr ;
+        gap: 3em;
+        
+        h1{
+            grid-column: 2;
+            justify-self: center;
+            align-self: center;
+            color: var(--Text);
+            border-bottom: 2px solid var(--Text);
+        }
+        section{
+            position: relative;
+            z-index: 10;
+        }
+        .Sec1{
+            grid-column: 1;
+            justify-self: center;
+            align-self: center;
+
+        }
+        .Sec2{
+            grid-column: 2;
+            justify-self: center;
+            align-self: center;
+        }
+        .Sec3{
+            grid-column: 3;
+            justify-self: center;
+            align-self: center;
+        }
+        .colorImg{
+            display: none;
+        }
+        .colorImg:hover{
+            cursor: pointer;
+        }
+
+        .blackImg:hover{
+            cursor: pointer;
+        }
+    }
+
+
+    /***************ourMovingButton*********/
+
+    .movingButton{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(50em,auto);
+        justify-content: center;
+        align-items: center;
+        
+        a{
+            position: relative;
+            z-index: 10;
+            justify-self: center;
+            justify-content: center;
+            border: 5px solid var(--Text);
+            padding: 20px 30px;
+            color: var(--Text);
+            font-size: 36px;
+            text-decoration: none;
+
+        }
+    }
+    /***************ourFooter*********/
+
+
+    .ourFooter{
+        border-top: 1px solid black;
+        margin-top: 100px;
+        padding-top: 10px;
+        color: var(--Text);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        grid-gap: 5em;
+
+        .header1{
+            grid-column: 2;
+        }
+
+        .text1{
+        grid-column: 1;
+        text-align: center;
+        }
+        .text2{
+        grid-column: 2;
+        text-align: center;
+        }
+        .text3{
+        grid-column: 3;
+        text-align: center;
+        }
+        ul li a{
+            position: relative;
+            z-index: 10;
+            color: var(--Text);
+        }
+        .face:hover{
+            color: blue;
+        }
+        
+        .insta:hover{
+            background: -webkit-linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .yt:hover{
+            color: red;
+        }
+        
+        .twitter:hover{
+            color:cyan;
+        }
+        #copyRight{
+            p{
+            font-size: 3em;
+            font-weight: bold;
+            }
+        }
+    }
